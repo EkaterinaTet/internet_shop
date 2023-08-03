@@ -3,238 +3,353 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <title>Shop</title>
   </head>
   <body>
-    <header class="header">
-      <div class="header__wrapper">
-        <div class="header__container container">
-          <div class="header__body">
-            <div class="header__main">
-              <a href="#" class="header__logo"
-                ><img
-                  class="header-logo__icon"
-                  src="./img/chair_logo.svg"
-                  alt="logo"
-              /></a>
-              <div class="header__menu menu">
-                <nav class="menu__body">
-                  <ul data-spollers="768,max" class="menu__list">
-                    <li class="menu__item">
-                      <a href="#" class="menu__link">Products</a>
-                      <button class="menu__arrow" data-spoller type="submit">
-                        <img src="./img/downarrow.svg" alt="arrow-down" />
-                      </button>
-                      <ul class="menu__sub-list">
-                        <li class="menu__sub-item">
-                          <a href="#" class="menu__sub-link">Product 1</a>
-                        </li>
-                        <li class="menu__sub-item">
-                          <a href="#" class="menu__sub-link">Product 2</a>
-                        </li>
-                        <li class="menu__sub-item">
-                          <a href="#" class="menu__sub-link">Product 3</a>
-                        </li>
-                        <li class="menu__sub-item">
-                          <a href="#" class="menu__sub-link">Product 4</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="menu__item">
-                      <a href="#" class="menu__link">Rooms</a>
-                      <button class="menu__arrow" data-spoller type="submit">
-                        <img src="./img/downarrow.svg" alt="arrow-down" />
-                      </button>
-                      <ul class="menu__sub-list">
-                        <li class="menu__sub-item">
-                          <a href="#" class="menu__sub-link">Room 1</a>
-                        </li>
-                        <li class="menu__sub-item">
-                          <a href="#" class="menu__sub-link">Room 2</a>
-                        </li>
-                        <li class="menu__sub-item">
-                          <a href="#" class="menu__sub-link">Room 3</a>
-                        </li>
-                        <li class="menu__sub-item">
-                          <a href="#" class="menu__sub-link">Room 4</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="menu__item">
-                      <a href="#" class="menu__link">Inspirations</a>
-                    </li>
-                  </ul>
-                </nav>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__wrapper">
+          <div class="header__container container">
+            <div class="header__body">
+              <div class="header__main">
+                <a href="#" class="header__logo"
+                  ><img
+                    class="header-logo__icon"
+                    src="./img/chair_logo.svg"
+                    alt="logo"
+                /></a>
+                <div class="header__menu menu">
+                  <nav class="menu__body">
+                    <ul data-spollers="768,max" class="menu__list">
+                      <li class="menu__item">
+                        <a href="#" class="menu__link">Products</a>
+                        <button class="menu__arrow" data-spoller type="submit">
+                          <img src="./img/downarrow.svg" alt="arrow-down" />
+                        </button>
+                        <ul class="menu__sub-list">
+                          <li class="menu__sub-item">
+                            <a href="#" class="menu__sub-link">Product 1</a>
+                          </li>
+                          <li class="menu__sub-item">
+                            <a href="#" class="menu__sub-link">Product 2</a>
+                          </li>
+                          <li class="menu__sub-item">
+                            <a href="#" class="menu__sub-link">Product 3</a>
+                          </li>
+                          <li class="menu__sub-item">
+                            <a href="#" class="menu__sub-link">Product 4</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="menu__item">
+                        <a href="#" class="menu__link">Rooms</a>
+                        <button class="menu__arrow" data-spoller type="submit">
+                          <img src="./img/downarrow.svg" alt="arrow-down" />
+                        </button>
+                        <ul class="menu__sub-list">
+                          <li class="menu__sub-item">
+                            <a href="#" class="menu__sub-link">Room 1</a>
+                          </li>
+                          <li class="menu__sub-item">
+                            <a href="#" class="menu__sub-link">Room 2</a>
+                          </li>
+                          <li class="menu__sub-item">
+                            <a href="#" class="menu__sub-link">Room 3</a>
+                          </li>
+                          <li class="menu__sub-item">
+                            <a href="#" class="menu__sub-link">Room 4</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="menu__item">
+                        <a href="#" class="menu__link">Inspirations</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
               </div>
-            </div>
-            <div class="header__search">
-              <div class="search-form">
-                <button class="search-form__icon" type="button">
-                  <img
-                    class="search-form__img"
-                    src="./img/search.svg"
-                    alt="search"
-                  />
-                </button>
-                <form action="#" class="search-form__item">
-                  <button class="search-form__btn" type="submit">
+              <div class="header__search">
+                <div class="search-form">
+                  <button class="search-form__icon" type="button">
                     <img
                       class="search-form__img"
                       src="./img/search.svg"
                       alt="search"
                     />
                   </button>
-                  <input
-                    class="search-form__input"
-                    type="text"
-                    autocomplete="off"
-                    name="form[]"
-                    placeholder="Search for minimalist chair"
-                  />
-                </form>
-              </div>
-            </div>
-            <div class="header__actions actions-header">
-              <a
-                href="#"
-                class="actions-header__item actions-header__item_favorites"
-              >
-                <img
-                  class="love-tovar__img"
-                  src="./img/love-tovar.svg"
-                  alt="love-tovar"
-              /></a>
-              <div class="actions-header__item cart-header">
-                <a href="#" class="cart-header__icon">
-                  <img
-                    class="basket__img"
-                    src="./img/basket-buy-market.svg"
-                    alt="basket"
-                  />
-                </a>
-                <div class="cart-header__body">
-                  <ul class="cart-header__list cart-list"></ul>
+                  <form action="#" class="search-form__item">
+                    <button class="search-form__btn" type="submit">
+                      <img
+                        class="search-form__img"
+                        src="./img/search.svg"
+                        alt="search"
+                      />
+                    </button>
+                    <input
+                      class="search-form__input"
+                      type="text"
+                      autocomplete="off"
+                      name="form[]"
+                      placeholder="Search for minimalist chair"
+                    />
+                  </form>
                 </div>
               </div>
-              <a href="#" class="actions-header__item actions-header__item_user"
-                ><img class="user__img" src="./img/user_icon.svg" alt="user"
+              <div class="header__actions actions-header">
+                <a
+                  href="#"
+                  class="actions-header__item actions-header__item_favorites"
+                >
+                  <img
+                    class="love-tovar__img"
+                    src="./img/love-tovar.svg"
+                    alt="love-tovar"
+                /></a>
+                <div class="actions-header__item cart-header">
+                  <a href="#" class="cart-header__icon">
+                    <img
+                      class="basket__img"
+                      src="./img/basket-buy-market.svg"
+                      alt="basket"
+                    />
+                  </a>
+                  <div class="cart-header__body">
+                    <ul class="cart-header__list cart-list"></ul>
+                  </div>
+                </div>
+                <a
+                  href="#"
+                  class="actions-header__item actions-header__item_user"
+                  ><img class="user__img" src="./img/user_icon.svg" alt="user"
+                /></a>
+              </div>
+              <button type="button" class="icon-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <section class="page__main-slider main-slider">
+          <div class="main-slider__container container">
+            <div class="main-slider__body">
+              <div class="main-slider__content content-main">
+                <h1 class="content-main__title">
+                  Lorem ipsum dolor sit amet consectetur.
+                </h1>
+                <div class="content-main__text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Suscipit iure pariatur earum, repellendus nihil asperiores?
+                </div>
+                <a href="#" class="content-main__button btn">Shop Now</a>
+              </div>
+              <div class="main-slider__slider slider-main">
+                <div class="slider-main__controls controls-slider-main">
+                  <div class="controls-slider-main__dotts"></div>
+                  <div class="controls-slider-main__arrows slider-arrows">
+                    <button
+                      type="button"
+                      class="slider-arrow slider-arrow__prev"
+                    >
+                      <img
+                        class="slider-arrow__img"
+                        src="./img/left-arrow.svg"
+                        alt="arrow"
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      class="slider-arrow slider-arrow__next"
+                    >
+                      <img
+                        class="slider-arrow__img"
+                        src="./img/right-arrow.svg"
+                        alt="arrow"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="slider-main__body _swiper">
+                  <div class="slider-main__slide">
+                    <div class="slider-main__image ibg">
+                      <img src="./img/bg-two.jpeg" alt="img" />
+                    </div>
+                    <a href="#" class="slider-main__content">
+                      <div class="slider-main__title">Sofa</div>
+                      <div class="slider-main__text">
+                        luxury big sofa 2-seat
+                      </div>
+                      <div class="slider-main__price">
+                        Rp 17.000.000
+                        <img
+                          class="slider-main__price-img"
+                          src="./img/arrow-link.svg"
+                          alt="arrow-link"
+                        />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="slider-main__slide">
+                    <div class="slider-main__image ibg">
+                      <img src="./img/bg.jpg" alt="img" />
+                    </div>
+                    <a href="#" class="slider-main__content">
+                      <div class="slider-main__title">Sofa-two</div>
+                      <div class="slider-main__text">luxury sofa</div>
+                      <div class="slider-main__price">
+                        Rp 19.000.000
+                        <img
+                          class="slider-main__price-img"
+                          src="./img/arrow-link.svg"
+                          alt="arrow-link"
+                        />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="slider-main__slide">
+                    <div class="slider-main__image ibg">
+                      <img src="./img/bg-three.jpeg" alt="img" />
+                    </div>
+                    <a href="#" class="slider-main__content">
+                      <div class="slider-main__title">Sofa-three</div>
+                      <div class="slider-main__text">sofa</div>
+                      <div class="slider-main__price">
+                        Rp 15.000.000
+                        <img
+                          class="slider-main__price-img"
+                          src="./img/arrow-link.svg"
+                          alt="arrow-link"
+                        />
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__container container">
+          <div class="footer__body">
+            <div class="footer__main">
+              <a href="#" class="header__logo _footer-title"
+                ><img
+                  class="header-logo__icon footer__logo"
+                  src="./img/chair_logo.svg"
+                  alt="logo"
               /></a>
+              <div class="footer__text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ea
+                sit quos fuga debitis.
+              </div>
+              <div class="footer__contacts contacts-footer">
+                <a href="#" class="contacts-footer__item">
+                  <img
+                    class="contacts-footer__img"
+                    src="img/location.svg"
+                    alt="location"
+                  />
+                  New Yourk, USA
+                </a>
+                <a href="tel:+12567652865" class="contacts-footer__item">
+                  <img
+                    class="contacts-footer__img"
+                    src="img/phone.svg"
+                    alt="phone"
+                  />
+                  +1256 765 2865
+                </a>
+                <a href="#" class="contacts-footer__item">www.chair.com</a>
+              </div>
             </div>
-            <button type="button" class="icon-menu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+            <div class="footer__menu menu-footer" data-spollers="768,max">
+              <div class="menu-footer__column">
+                <button
+                  type="button"
+                  data-spoller
+                  class="menu-footer__title _footer-title"
+                >
+                  Menu
+                </button>
+                <ul class="menu-footer__list">
+                  <li><a href="#" class="menu-footer__link">Products</a></li>
+                  <li><a href="#" class="menu-footer__link">Rooms</a></li>
+                  <li>
+                    <a href="#" class="menu-footer__link">Inspirations</a>
+                  </li>
+                  <li><a href="#" class="menu-footer__link">About Us</a></li>
+                </ul>
+              </div>
+              <div class="menu-footer__column">
+                <button
+                  type="button"
+                  data-spoller
+                  class="menu-footer__title _footer-title"
+                >
+                  Account
+                </button>
+                <ul class="menu-footer__list">
+                  <li><a href="#" class="menu-footer__link">Products</a></li>
+                  <li><a href="#" class="menu-footer__link">Rooms</a></li>
+                  <li>
+                    <a href="#" class="menu-footer__link">Inspirations</a>
+                  </li>
+                  <li><a href="#" class="menu-footer__link">About Us</a></li>
+                </ul>
+              </div>
+              <div class="menu-footer__column">
+                <button
+                  type="button"
+                  data-spoller
+                  class="menu-footer__title _footer-title"
+                >
+                  Stay Connected
+                </button>
+                <ul class="menu-footer__list">
+                  <li><a href="#" class="menu-footer__link">Facebook</a></li>
+                  <li><a href="#" class="menu-footer__link">Instagram</a></li>
+                  <li><a href="#" class="menu-footer__link">Twitter</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer__subscribe subscribe">
+              <div class="subscribe__title _footer-title">Stay Updated</div>
+              <form
+                data-message="subscribe"
+                data-test
+                action="#"
+                class="subscribe__form"
+              >
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="form[]"
+                  data-error="Ошибка"
+                  placeholder="Enter your email"
+                  class="subscribe__input _req _email"
+                />
+                <button type="submit" class="subscribe__button btn">
+                  <img src="img/send.svg" alt="send" />
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
-    <footer class="footer">
-      <div class="footer__container container">
-        <div class="footer__body">
-          <div class="footer__main">
-            <a href="#" class="header__logo _footer-title"
-              ><img
-                class="header-logo__icon footer__logo"
-                src="./img/chair_logo.svg"
-                alt="logo"
-            /></a>
-            <div class="footer__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ea sit
-              quos fuga debitis.
-            </div>
-            <div class="footer__contacts contacts-footer">
-              <a href="#" class="contacts-footer__item">
-                <img
-                  class="contacts-footer__img"
-                  src="img/location.svg"
-                  alt="location"
-                />
-                New Yourk, USA
-              </a>
-              <a href="tel:+12567652865" class="contacts-footer__item">
-                <img
-                  class="contacts-footer__img"
-                  src="img/phone.svg"
-                  alt="phone"
-                />
-                +1256 765 2865
-              </a>
-              <a href="#" class="contacts-footer__item">www.chair.com</a>
-            </div>
-          </div>
-          <div class="footer__menu menu-footer" data-spollers="768,max">
-            <div class="menu-footer__column">
-              <button
-                type="button"
-                data-spoller
-                class="menu-footer__title _footer-title"
-              >
-                Menu
-              </button>
-              <ul class="menu-footer__list">
-                <li><a href="#" class="menu-footer__link">Products</a></li>
-                <li><a href="#" class="menu-footer__link">Rooms</a></li>
-                <li><a href="#" class="menu-footer__link">Inspirations</a></li>
-                <li><a href="#" class="menu-footer__link">About Us</a></li>
-              </ul>
-            </div>
-            <div class="menu-footer__column">
-              <button
-                type="button"
-                data-spoller
-                class="menu-footer__title _footer-title"
-              >
-                Account
-              </button>
-              <ul class="menu-footer__list">
-                <li><a href="#" class="menu-footer__link">Products</a></li>
-                <li><a href="#" class="menu-footer__link">Rooms</a></li>
-                <li><a href="#" class="menu-footer__link">Inspirations</a></li>
-                <li><a href="#" class="menu-footer__link">About Us</a></li>
-              </ul>
-            </div>
-            <div class="menu-footer__column">
-              <button
-                type="button"
-                data-spoller
-                class="menu-footer__title _footer-title"
-              >
-                Stay Connected
-              </button>
-              <ul class="menu-footer__list">
-                <li><a href="#" class="menu-footer__link">Facebook</a></li>
-                <li><a href="#" class="menu-footer__link">Instagram</a></li>
-                <li><a href="#" class="menu-footer__link">Twitter</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="footer__subscribe subscribe">
-            <div class="subscribe__title _footer-title">Stay Updated</div>
-            <form
-              data-message="subscribe"
-              data-test
-              action="#"
-              class="subscribe__form"
-            >
-              <input
-                type="text"
-                autocomplete="off"
-                name="form[]"
-                data-error="Ошибка"
-                placeholder="Enter your email"
-                class="subscribe__input _req _email"
-              />
-              <button type="submit" class="subscribe__button btn">
-                <img src="img/send.svg" alt="send" />
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script src="spoiler.js"></script>
-    <script src="js/main.js"></script>
+      </footer>
+    </div>
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="./js/sliders.js"></script>
+    <script src="./js/spoiler.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

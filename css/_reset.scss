@@ -7,6 +7,10 @@ html {
 *::before {
   box-sizing: inherit; /*наследовать значение у своего родителя*/
 }
+* {
+  margin: 0;
+  padding: 0;
+}
 h2,
 p {
   margin: 0;
@@ -36,11 +40,40 @@ body {
   color: #3a3a3a;
   padding: 0;
   margin: 0;
-  width: 1240px;
-  background-color: #f9f1e7;
+  width: 100%;
+  // background-color: #f9f1e7;
+}
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .container {
   max-width: 1170px;
   margin: 0 auto;
   padding: 0px 10px;
+}
+.ibg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.ibg img {
+  // width: 0;
+  // height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+  min-height: 48px;
 }

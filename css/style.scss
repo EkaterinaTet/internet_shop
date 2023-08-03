@@ -5,6 +5,7 @@
   width: 100%;
   top: 0;
   left: 0;
+
   &__wrapper {
     position: fixed;
     width: 100%;
@@ -380,9 +381,13 @@
   font-size: 16px;
 }
 .footer {
-  position: fixed;
+  // position: fixed;
   width: 100%;
   bottom: 0;
+  background-color: #f9f1e7;
+  @media (max-width: 992px) {
+    margin-top: 55px;
+  }
   &__container {
   }
   &__body {
@@ -567,4 +572,277 @@
 }
 
 .btn {
+}
+
+.page {
+  flex: 1 1 auto;
+  &__main-slider {
+  }
+}
+.main-slider {
+  background: #fcf8f3;
+  &__container {
+    position: relative;
+    @media (min-height: 992px) {
+      &::before {
+        content: "";
+        background: #f9f1e7;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        right: 376px;
+        height: 100%;
+      }
+    }
+  }
+  &__body {
+    padding-top: 140px;
+    position: relative;
+    z-index: 2;
+    @media (max-width: 992px) {
+      padding-top: 80px;
+    }
+    @media (max-width: 768px) {
+      padding-top: 50px;
+    }
+    @media (min-width: 992px) {
+      display: flex;
+    }
+  }
+  &__content {
+    align-self: flex-start;
+    flex: 0 0 40%;
+    margin-bottom: 80px;
+  }
+  &__slider {
+    flex: 1 1 auto;
+    min-width: 0;
+    // align-self: flex-end;
+    @media (min-width: 992px) {
+      padding-left: 32px;
+    }
+  }
+}
+
+.content-main {
+  position: relative;
+  z-index: 5;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: rgba(255, 255, 255, 0.72);
+  @media (min-width: 992px) {
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+  &__title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 120%;
+
+    &:not(:last-child) {
+      margin-bottom: 16px/56px * 1em;
+    }
+    @media (max-width: 992px) {
+      font-size: 45px;
+      padding-top: 15px;
+    }
+    @media (max-width: 768px) {
+      font-size: 30px;
+      padding-top: 25px;
+    }
+  }
+  &__text {
+    font-size: 20px;
+    color: grey;
+    font-weight: 500;
+    line-height: 150%;
+    &:not(:last-child) {
+      margin-bottom: 48px/20px * 1em;
+    }
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+  &__button {
+    min-height: 78px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: rgb(221, 166, 65);
+    color: #fff;
+    width: 100%;
+    @media (max-width: 768px) {
+      min-height: 45px;
+      font-size: 16px;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgb(187, 140, 53);
+      }
+    }
+  }
+}
+
+.slider-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  &__controls {
+    align-self: stretch;
+    margin: 0 0 20px 0;
+  }
+  &__body {
+    overflow: visible;
+    @media (min-width: 992px) {
+      width: 934px;
+    }
+  }
+  &__slide {
+    position: relative;
+  }
+  &__image {
+    padding: 0 0 59% 0;
+  }
+  &__content {
+    min-width: 295px;
+    max-height: 300px;
+    overflow: auto;
+    position: absolute;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    @media (min-width: 768px) {
+      position: absolute;
+      min-width: 350px;
+      bottom: 40px;
+      right: 40px;
+    }
+    @media (max-width: 768px) {
+      padding: 0;
+    }
+  }
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 0 0 4px / 28px * 1em 0;
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+  }
+  &__text {
+    line-height: 150%;
+    color: gray;
+    margin: 0 0 8px / 16px * 1em 0;
+  }
+  &__price {
+    display: flex;
+    line-height: 150%;
+    align-items: center;
+    font-weight: 600;
+    justify-content: space-between;
+    font-size: 20px;
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+  &__price-img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.controls-slider-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 992px) {
+    padding-top: 25px;
+  }
+  &__dotts {
+  }
+  &__arrows {
+  }
+}
+
+.slider-arrows {
+  display: grid;
+  grid-template-columns: repeat(2, 48px);
+  column-gap: 8px;
+}
+.slider-arrow {
+  position: relative;
+  border-radius: 50%;
+  height: 48px;
+  background-color: rgb(221, 166, 65);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: rgb(187, 140, 53);
+    }
+  }
+  &__prev {
+  }
+  &__next {
+  }
+  &__img {
+    width: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate((-50%, -50%));
+  }
+}
+
+.swiper-pagination-bullets {
+  display: flex;
+}
+.swiper-pagination-bullet {
+  cursor: pointer;
+  flex: 0 0 27px;
+  height: 27px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2px 0;
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
+  &::after {
+    content: "";
+    width: 11px;
+    height: 11px;
+    background-color: #d8d8d8;
+    border-radius: 50%;
+    transition: background-color 0.3s ease 0s;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid orange;
+    transition: all 0.3s ease 0s;
+    transform: scale(0);
+  }
+}
+.swiper-pagination-bullet-active {
+  &::after {
+    background-color: orange;
+  }
+
+  &::before {
+    transform: scale(1);
+  }
+}
+
+:root {
+  // - для точек слайдера (фон)
+  --swiper-theme-color: transperent;
 }
