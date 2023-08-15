@@ -5,8 +5,25 @@
   width: 100%;
   top: 0;
   left: 0;
-
+  min-height: 40px;
+  &._scroll {
+    .header__wrapper {
+      background-color: rgba(255, 255, 255, 0.8);
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.9);
+        }
+      }
+    }
+    .header__body {
+      min-height: 50px;
+      @media (min-width: 992px) {
+        min-height: 70px;
+      }
+    }
+  }
   &__wrapper {
+    transition: background-color 0.3s ease 0s;
     position: fixed;
     width: 100%;
     left: 0;
@@ -16,6 +33,7 @@
   &__container {
   }
   &__body {
+    transition: min-height 0.3s ease 0s;
     display: flex;
     align-items: center;
     padding: 5px 0;
@@ -386,7 +404,7 @@
   bottom: 0;
   background-color: #f9f1e7;
   @media (max-width: 992px) {
-    margin-top: 55px;
+    margin-top: 30px;
   }
   &__container {
   }
@@ -503,7 +521,6 @@
     }
   }
   &__list {
-    margin-left: -33px;
     li {
       &:not(:last-child) {
         margin: 0 0 15px 0;
@@ -511,6 +528,7 @@
     }
     @media (max-width: 768px) {
       padding-top: 15px;
+      text-align: center;
     }
   }
   &__link {
@@ -594,6 +612,9 @@
         height: 100%;
       }
     }
+    @media (max-width: 992px) {
+      padding-top: 15px;
+    }
   }
   &__body {
     padding-top: 140px;
@@ -613,6 +634,9 @@
     align-self: flex-start;
     flex: 0 0 40%;
     margin-bottom: 80px;
+    @media (max-width: 992px) {
+      margin: 0 -15px;
+    }
   }
   &__slider {
     flex: 1 1 auto;
@@ -644,7 +668,7 @@
     }
     @media (max-width: 992px) {
       font-size: 45px;
-      padding-top: 15px;
+      padding-top: 30px;
     }
     @media (max-width: 768px) {
       font-size: 30px;
@@ -674,6 +698,13 @@
       min-height: 45px;
       font-size: 16px;
     }
+    @media (max-width: 992px) {
+      width: 50%;
+      margin-bottom: 10px;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
     @media (any-hover: hover) {
       &:hover {
         background-color: rgb(187, 140, 53);
@@ -686,14 +717,24 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  @media (max-width: 992px) {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
   &__controls {
     align-self: stretch;
     margin: 0 0 20px 0;
+    @media (max-width: 992px) {
+      margin: 10px 0 20px 0;
+    }
   }
   &__body {
     overflow: visible;
     @media (min-width: 992px) {
       width: 934px;
+    }
+    @media (max-width: 992px) {
+      margin: 0 -15px;
     }
   }
   &__slide {
@@ -706,7 +747,6 @@
     min-width: 295px;
     max-height: 300px;
     overflow: auto;
-    position: absolute;
     color: inherit;
     display: flex;
     flex-direction: column;
@@ -719,7 +759,7 @@
       right: 40px;
     }
     @media (max-width: 768px) {
-      padding: 0;
+      // padding: 0;
     }
   }
   &__title {
@@ -761,6 +801,12 @@
     padding-top: 25px;
   }
   &__dotts {
+    @media (min-width: 992px) {
+      padding: 0 20px 0 0;
+    }
+    @media (max-width: 992px) {
+      justify-content: center;
+    }
   }
   &__arrows {
   }
@@ -770,6 +816,9 @@
   display: grid;
   grid-template-columns: repeat(2, 48px);
   column-gap: 8px;
+  @media (max-width: 992px) {
+    display: none;
+  }
 }
 .slider-arrow {
   position: relative;
@@ -845,4 +894,44 @@
 :root {
   // - для точек слайдера (фон)
   --swiper-theme-color: transperent;
+}
+
+.page__advantages {
+}
+.advantages {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__item {
+    display: inline-grid;
+    grid-template: auto auto / 65px 1fr;
+    @media (max-width: 992px) {
+      margin-top: 20px;
+      min-width: 280px;
+    }
+  }
+  &__icon {
+    text-align: center;
+    align-self: center;
+    grid-row: span 2;
+    margin-right: 15px;
+
+    @media (max-width: 768px) {
+      padding: 0 15px 0 0;
+    }
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+    margin: 0 0 2px/18px * 1em 0px;
+  }
+  &__text {
+    line-height: 150%;
+    color: grey;
+  }
 }
