@@ -1,0 +1,71 @@
+{
+  "products": [
+    {
+      "id": 5,
+      "url": "#",
+      "title": "Bed",
+      "text": "Night bed",
+      "labels": "",
+      "image": "5.jpg",
+      "price": "5.500.000",
+      "priceOld": "",
+      "shareUrl": "",
+      "likeUrl": ""
+    },
+    {
+      "id": 6,
+      "url": "#",
+      "title": "Lamp",
+      "text": "Desk lamp",
+      "labels": [
+        {
+          "type": "sale",
+          "value": "-10%"
+        },
+        {
+          "type": "new",
+          "value": "New"
+        }
+      ],
+      "image": "6.jpg",
+      "price": "1.500.000",
+      "priceOld": "2.000.000",
+      "shareUrl": "",
+      "likeUrl": ""
+    },
+    {
+      "id": 7,
+      "url": "#",
+      "title": "Сurtains",
+      "text": "Light curtains",
+      "labels": [
+        {
+          "type": "new",
+          "value": "New"
+        }
+      ],
+      "image": "7.webp",
+      "price": "2.500.000",
+      "priceOld": "",
+      "shareUrl": "",
+      "likeUrl": ""
+    },
+    {
+      "id": 8,
+      "url": "#",
+      "title": "Table",
+      "text": "Computer desk",
+      "labels": [
+        {
+          "type": "sale",
+          "value": "-20%"
+        }
+      ],
+      "image": "8.jpg",
+      "price": "3.000.000",
+      "priceOld": "5.000.000",
+      "shareUrl": "",
+      "likeUrl": ""
+    }
+  ]
+}
