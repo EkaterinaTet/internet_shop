@@ -420,6 +420,38 @@ body {
   color: #fff;
   font-size: 12px;
 }
+.cart-header__body {
+  background: #f4f5f7;
+  border: 1px solid #e0e0e0;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  padding: 15px;
+  width: 300px;
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease 0s;
+  transform: translate(0px, 20px);
+}
+._active .cart-header__body {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0px, 0px);
+}
+@media (max-width: 992px) {
+  .cart-header__body {
+    top: 50px;
+  }
+}
+@media (max-width: 768px) {
+  .cart-header__body {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+  }
+}
 .basket__img {
   height: 25px;
   width: 40px;
@@ -1175,6 +1207,10 @@ body {
 .actions-product__button:not(:last-child) {
   margin: 0 0 24px 0;
 }
+.actions-product__button._hold {
+  opacity: 0.2;
+  cursor: default;
+}
 .actions-product__link {
   display: flex;
   align-items: center;
@@ -1208,4 +1244,74 @@ body {
 .products__more {
   border: 1px solid orange;
   min-width: 245px;
+}
+.products__more._hold {
+  opacity: 0.4;
+  cursor: default;
+}
+
+._flyImage._ibg {
+  opacity: 1;
+  position: fixed;
+  z-index: 100;
+  transition: all 1s ease 0s;
+}
+
+.cart-list {
+  overflow: auto;
+  max-height: 250px;
+}
+.cart-list__image {
+  background-size: cover;
+}
+.cart-list__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0 0 10px;
+}
+.cart-list__title {
+  color: inherit;
+  font-weight: 600;
+  transition: color 0.3s ease 0s;
+  margin: 0 0 0.3125em 0;
+}
+@media (any-hover: hover) {
+  .cart-list__title:hover {
+    color: orange;
+  }
+}
+.cart-list__quantity {
+  font-size: 14px;
+  margin: 0 0 0.3571428571em 0;
+}
+.cart-list__delete {
+  color: red;
+  font-size: 14px;
+}
+@media (any-hover: hover) {
+  .cart-list__delete:hover {
+    text-decoration: underline;
+  }
+}
+.cart-list__item {
+  display: flex;
+  align-items: flex-start;
+}
+.cart-list__item:not(:last-child) {
+  margin: 0 0 15px 0;
+}
+
+.cart-ibg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-right: 20px;
+}
+
+.cart-ibg img {
+  width: 70px;
+  height: 90px;
 }/*# sourceMappingURL=style.css.map */

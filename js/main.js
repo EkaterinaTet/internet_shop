@@ -54,7 +54,36 @@ window.onload = function () {
       getProducts(targetElement);
       e.preventDefault(); //отменяет обычное действие, поскольку это ссылка, стр должна перезагрузиться автоматически (это отменяем)
     }
+
+    if (targetElement.classList.contains("actions-product__button")) {
+      const productId = targetElement.closest(".item-product").dataset.pid;
+      addToCart(targetElement, productId);
+      e.preventDefault();
+    }
+
+    if (
+      targetElement.classList.contains("cart-header__icon") ||
+      targetElement.closest(".cart-header__icon")
+    ) {
+      if (document.querySelector(".cart-list").children.length > 0) {
+        document.querySelector(".cart-header").classList.toggle("_active");
+      }
+      e.preventDefault();
+    } else if (
+      !targetElement.closest(".cart-header") &&
+      !targetElement.classList.contains("actions-product__button")
+    ) {
+      document.querySelector(".cart-header").classList.remove("_active");
+    }
+
+    if (targetElement.classList.contains("cart-list__delete")) {
+      const productId =
+        targetElement.closest(".cart-list__item").dataset.cartPid;
+      updateCart(targetElement, productId, false); //false- не добавляем товар в корзину,а удаляем
+      e.preventDefault();
+    }
   }
+
   // Header (при скролле остается вверху)
   const headerElement = document.querySelector(".header");
 
@@ -176,6 +205,130 @@ window.onload = function () {
 
       productsItems.insertAdjacentHTML("beforeend", productTemplate);
     });
+  }
+
+  //Ad to Cart
+  function addToCart(productButton, productId) {
+    if (!productButton.classList.contains("_hold")) {
+      productButton.classList.add("_hold");
+      productButton.classList.add("_fly");
+
+      const cart = document.querySelector(".cart-header__icon");
+      const product = document.querySelector(`[data-pid="${productId}"]`);
+      const productImage = product.querySelector(".item-product__image");
+
+      const productImageFly = productImage.cloneNode(true); //клонирую весь этот объект
+
+      //получаю размеры и координаты картинки
+      const productImageFlyWidth = productImage.offsetWidth; //ширина оригинальной картинки
+      const productImageFlyHeight = productImage.offsetHeight; //высота
+      const productImageFlyTop = productImage.getBoundingClientRect().top; //позиция сверху
+      const productImageFlyLeft = productImage.getBoundingClientRect().left; //позиция слева
+
+      productImageFly.setAttribute("class", "_flyImage _ibg");
+      productImageFly.style.cssText = `
+      left: ${productImageFlyLeft}px;
+      top: ${productImageFlyTop}px;
+      width: ${productImageFlyWidth}px;
+      height: ${productImageFlyHeight}px;
+      `;
+
+      document.body.append(productImageFly);
+
+      //отправляю клон в корзину
+      //получаю координаты корзины
+      const cartFlyLeft = cart.getBoundingClientRect().left;
+      const cartFlyTop = cart.getBoundingClientRect().top;
+      //клону присваиваю уже новое значение (картинка будет лететь, уменьшаться и исчезать)
+      productImageFly.style.cssText = `
+      left: ${cartFlyLeft}px;
+      top: ${cartFlyTop}px;
+      width: 0px;
+      height: 0px;
+      opacity:0;
+      `;
+
+      //выводить товар в корзине тогда, когда клон долетит до нее.
+      productImageFly.addEventListener("transitionend", function () {
+        if (productButton.classList.contains("_fly")) {
+          productImageFly.remove();
+          updateCart(productButton, productId);
+          productButton.classList.remove("_fly");
+        }
+      });
+    }
+  }
+
+  //будет добавлять товары в корзину и удалять
+  function updateCart(productButton, productId, productAdd = true) {
+    const cart = document.querySelector(".cart-header");
+    const cartIcon = cart.querySelector(".cart-header__icon");
+    const cartQuantity = cartIcon.querySelector("span");
+    const cartProduct = document.querySelector(
+      `[data-cart-pid="${productId}"]`
+    );
+    const cartList = document.querySelector(".cart-list");
+
+    //товар добавляем
+    if (productAdd) {
+      if (cartQuantity) {
+        cartQuantity.innerHTML = ++cartQuantity.innerHTML;
+      } else {
+        cartIcon.insertAdjacentHTML("beforeend", `<span>1</span>`);
+      }
+
+      //при нажатии на корзину будет выпадать список добавленных товаров
+      if (!cartProduct) {
+        //проверяю,существует ли добавленный товар(если нет, тогда его формирую)
+        const product = document.querySelector(`[data-pid="${productId}"]`);
+        const cartProductImage = product.querySelector(
+          ".item-product__image"
+        ).innerHTML;
+        const cartProductTitle = product.querySelector(
+          ".item-product__title"
+        ).innerHTML;
+        const cartProductContent = `
+      <a href="" class="cart-list__image cart-ibg">${cartProductImage}</a>
+      <div class="cart-list__body>
+        <a href="" class="cart-list__title">${cartProductTitle}</a>
+        <div class="cart-list__quantity">Quantity: <span>1</span></div>
+        <a href="" class="cart-list__delete">Delete</a>
+      </div>
+        `;
+        cartList.insertAdjacentHTML(
+          "beforeend",
+          `<li data-cart-pid="${productId}" class="cart-list__item">${cartProductContent}</li>`
+        );
+      } else {
+        //если товар есть
+        const cartProductQuantity = cartProduct.querySelector(
+          ".cart-list__quantity span"
+        );
+        cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
+      }
+
+      //после всех действий отбираем класс (чтобы один и тот же товар можно было добавить в корзину не один раз)
+      productButton.classList.remove("_hold");
+    } else {
+      const cartProductQuantity = cartProduct.querySelector(
+        ".cart-list__quantity span"
+      ); //получаю кол-во добавлен. товара в корзину
+      cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML; //уменьшаю это кол-во на единицу
+      if (!parseInt(cartProductQuantity.innerHTML)) {
+        //если результат 0, тогда этот товар удаляю
+        cartProduct.remove();
+      }
+
+      const cartQuantityValue = --cartQuantity.innerHTML;
+
+      if (cartQuantityValue) {
+        //если больше нуля, то изменяю кол-во в кружке над карзиной (в спан)
+        cartQuantity.innerHTML = cartQuantityValue;
+      } else {
+        cartQuantity.remove(); //если товар нет, удаляю спан оттуда
+        cart.classList.remove("_active"); //и класс актив у списка (чтобы он закрылся)
+      }
+    }
   }
 };
 
