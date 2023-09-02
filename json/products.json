@@ -7,7 +7,7 @@
       "text": "Night bed",
       "labels": "",
       "image": "5.jpg",
-      "price": "5.500.000",
+      "price": "500",
       "priceOld": "",
       "shareUrl": "",
       "likeUrl": ""
@@ -28,8 +28,8 @@
         }
       ],
       "image": "6.jpg",
-      "price": "1.500.000",
-      "priceOld": "2.000.000",
+      "price": "70",
+      "priceOld": "90",
       "shareUrl": "",
       "likeUrl": ""
     },
@@ -45,7 +45,7 @@
         }
       ],
       "image": "7.webp",
-      "price": "2.500.000",
+      "price": "140",
       "priceOld": "",
       "shareUrl": "",
       "likeUrl": ""
@@ -62,8 +62,8 @@
         }
       ],
       "image": "8.jpg",
-      "price": "3.000.000",
-      "priceOld": "5.000.000",
+      "price": "500",
+      "priceOld": "600",
       "shareUrl": "",
       "likeUrl": ""
     }

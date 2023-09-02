@@ -166,8 +166,8 @@ window.onload = function () {
 
       let productTemplatePrices = "";
       let productTemplatePricesStart = `<div class="item-product__prices">`;
-      let productTemplatePricesCurrent = `<div class="item-product__price">Rp ${productPrice}</div>`;
-      let productTemplatePricesOld = `<div class="item-product__price_old>Rp ${productOldPrice}</div>`;
+      let productTemplatePricesCurrent = `<div class="item-product__price">${productPrice} $</div>`;
+      let productTemplatePricesOld = `<div class="item-product__price_old>${productOldPrice} $</div>`;
       let productTemplatePricesEnd = `</div>`;
 
       productTemplatePrices = productTemplatePricesStart;
