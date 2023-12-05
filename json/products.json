@@ -8,9 +8,7 @@
       "labels": "",
       "image": "5.jpg",
       "price": "500",
-      "priceOld": "",
-      "shareUrl": "",
-      "likeUrl": ""
+      "priceOld": ""
     },
     {
       "id": 6,
@@ -19,19 +17,13 @@
       "text": "Desk lamp",
       "labels": [
         {
-          "type": "sale",
-          "value": "-10%"
-        },
-        {
           "type": "new",
           "value": "New"
         }
       ],
       "image": "6.jpg",
       "price": "70",
-      "priceOld": "90",
-      "shareUrl": "",
-      "likeUrl": ""
+      "priceOld": "90"
     },
     {
       "id": 7,
@@ -46,26 +38,17 @@
       ],
       "image": "7.webp",
       "price": "140",
-      "priceOld": "",
-      "shareUrl": "",
-      "likeUrl": ""
+      "priceOld": ""
     },
     {
       "id": 8,
       "url": "#",
       "title": "Table",
       "text": "Computer desk",
-      "labels": [
-        {
-          "type": "sale",
-          "value": "-20%"
-        }
-      ],
+      "labels": "",
       "image": "8.jpg",
       "price": "500",
-      "priceOld": "600",
-      "shareUrl": "",
-      "likeUrl": ""
+      "priceOld": "600"
     }
   ]
 }

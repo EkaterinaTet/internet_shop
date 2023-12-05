@@ -105,7 +105,7 @@
                 </div>
               </div>
               <div class="header__actions actions-header">
-                <a
+                <!-- <a
                   href="#"
                   class="actions-header__item actions-header__item_favorites"
                 >
@@ -113,7 +113,7 @@
                     class="love-tovar__img"
                     src="./img/love-tovar.svg"
                     alt="love-tovar"
-                /></a>
+                /></a> -->
                 <div class="actions-header__item cart-header">
                   <a href="#" class="cart-header__icon">
                     <img
@@ -124,13 +124,14 @@
                   </a>
                   <div class="cart-header__body">
                     <ul class="cart-header__list cart-list"></ul>
+                    <a class="cart-header__btn" href="#">Order</a>
                   </div>
                 </div>
-                <a
+                <!-- <a
                   href="#"
                   class="actions-header__item actions-header__item_user"
                   ><img class="user__img" src="./img/user_icon.svg" alt="user"
-                /></a>
+                /></a> -->
               </div>
               <button type="button" class="icon-menu">
                 <span></span>
@@ -141,6 +142,7 @@
           </div>
         </div>
       </header>
+
       <main class="page">
         <section class="page__main-slider main-slider">
           <div class="main-slider__container container">
@@ -253,6 +255,7 @@
             </div>
           </div>
         </section>
+
         <section class="page__advantages advantages">
           <div class="advantages__container container">
             <div class="advantages__item">
@@ -309,7 +312,7 @@
                     <div class="item-product__text">Stylish cafe chair</div>
                   </div>
                   <div class="item-product__prices">
-                    <div class="item-product__price">150 $</div>
+                    <div class="item-product__price">140 $</div>
                     <div class="item-product__price_old">200 $</div>
                   </div>
                   <div class="item-product__actions actions-product">
@@ -317,7 +320,7 @@
                       <a href="#" class="actions-product__button btn btn_white"
                         >Add to cart</a
                       >
-                      <a href="#" class="actions-product__link">
+                      <!-- <a href="#" class="actions-product__link">
                         <img
                           class="action__img"
                           src="img/share.svg"
@@ -332,7 +335,7 @@
                           alt="like"
                         />
                         Like
-                      </a>
+                      </a> -->
                     </div>
                   </div>
                 </div>
@@ -353,29 +356,12 @@
                   </div>
                   <div class="item-product__prices">
                     <div class="item-product__price">400 $</div>
-                    <div class="item-product__price_old">500 $</div>
                   </div>
                   <div class="item-product__actions actions-product">
                     <div class="actions-product__body">
                       <a href="#" class="actions-product__button btn btn_white"
                         >Add to cart</a
                       >
-                      <a href="#" class="actions-product__link">
-                        <img
-                          class="action__img"
-                          src="img/share.svg"
-                          alt="share"
-                        />
-                        Share
-                      </a>
-                      <a href="#" class="actions-product__link">
-                        <img
-                          class="action__img"
-                          src="img/like.svg"
-                          alt="like"
-                        />
-                        Like
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -399,28 +385,13 @@
                   </div>
                   <div class="item-product__prices">
                     <div class="item-product__price">200 $</div>
+                    <div class="item-product__price_old">220 $</div>
                   </div>
                   <div class="item-product__actions actions-product">
                     <div class="actions-product__body">
                       <a href="#" class="actions-product__button btn btn_white"
                         >Add to cart</a
                       >
-                      <a href="#" class="actions-product__link">
-                        <img
-                          class="action__img"
-                          src="img/share.svg"
-                          alt="share"
-                        />
-                        Share
-                      </a>
-                      <a href="#" class="actions-product__link">
-                        <img
-                          class="action__img"
-                          src="img/like.svg"
-                          alt="like"
-                        />
-                        Like
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -444,29 +415,12 @@
                   </div>
                   <div class="item-product__prices">
                     <div class="item-product__price">100 $</div>
-                    <div class="item-product__price_old">120 $</div>
                   </div>
                   <div class="item-product__actions actions-product">
                     <div class="actions-product__body">
                       <a href="#" class="actions-product__button btn btn_white"
                         >Add to cart</a
                       >
-                      <a href="#" class="actions-product__link">
-                        <img
-                          class="action__img"
-                          src="img/share.svg"
-                          alt="share"
-                        />
-                        Share
-                      </a>
-                      <a href="#" class="actions-product__link">
-                        <img
-                          class="action__img"
-                          src="img/like.svg"
-                          alt="like"
-                        />
-                        Like
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -517,6 +471,39 @@
             </div>
           </div>
         </section>
+        <section class="page__banner">
+          <div class="banner">
+            <div class="banner__content">
+              <p class="banner__title">until the new year left:</p>
+              <div class="banner__countdown" id="countdown">
+                <div class="banner__time">
+                  <p id="days">00</p>
+                  <small>дней</small>
+                </div>
+                <div class="banner__time">
+                  <p id="hours">00</p>
+                  <small>часов</small>
+                </div>
+                <div class="banner__time">
+                  <p id="minutes">00</p>
+                  <small>минут</small>
+                </div>
+                <div class="banner__time">
+                  <p id="seconds">00</p>
+                  <small>секунд</small>
+                </div>
+              </div>
+              <p class="banner__text">
+                Don't miss your chance to order furniture with New Year's
+                <span>discounts</span>
+              </p>
+              <a class="banner__btn">Go to shopping</a>
+            </div>
+          </div>
+        </section>
+
+        <div class="animation"><p class="text-animation">chair.com</p></div>
+
         <section class="page__tips tips">
           <div class="tips__container container">
             <h2 class="tips__title _title">Tips & Tricks</h2>
@@ -756,9 +743,41 @@
           </div>
         </div>
       </footer>
+
+      <!--popup-->
+      <!-- <div class="popup__bg">
+        <div class="popup__content">
+          <p class="popup__title">until the new year left:</p>
+          <div class="popup__countdown" id="countdown">
+            <div class="popup__time">
+              <p id="days">00</p>
+              <small>дней</small>
+            </div>
+            <div class="popup__time">
+              <p id="hours">00</p>
+              <small>часов</small>
+            </div>
+            <div class="popup__time">
+              <p id="minutes">00</p>
+              <small>минут</small>
+            </div>
+            <div class="popup__time">
+              <p id="seconds">00</p>
+              <small>секунд</small>
+            </div>
+          </div>
+          <p class="popup__text">
+            Don't miss your chance to order furniture with New Year's
+            <span>discounts</span>
+          </p>
+          <button id="popup__btn" class="popup__btn">Good!</button>
+        </div>
+      </div> -->
+      <!--popup-->
     </div>
-    <script src="./js/sliders.js"></script>
-    <script src="./js/spoiler.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="/js/sliders.js"></script>
+    <script src="/js/spoiler.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/time.js"></script>
   </body>
 </html>

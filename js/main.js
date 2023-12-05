@@ -42,17 +42,17 @@ window.onload = function () {
       }
     }
     if (targetElement.classList.contains("search-form__img")) {
-      document.querySelector(".search-form").classList.toggle("_active"); //добавляем класс при клике на иконку лупы
+      document.querySelector(".search-form").classList.toggle("_active"); //добавляю класс при клике на иконку лупы
     } else if (
       !targetElement.closest(".search-form") &&
       document.querySelector(".search-form._active")
     ) {
-      document.querySelector(".search-form").classList.remove("_active"); //убираем класс (форму поиска) по клику на любую область
+      document.querySelector(".search-form").classList.remove("_active"); //убираю класс (форму поиска) по клику на любую область
     }
 
     if (targetElement.classList.contains("products__more")) {
       getProducts(targetElement);
-      e.preventDefault(); //отменяет обычное действие, поскольку это ссылка, стр должна перезагрузиться автоматически (это отменяем)
+      e.preventDefault();
     }
 
     if (targetElement.classList.contains("actions-product__button")) {
@@ -128,8 +128,8 @@ window.onload = function () {
       const productText = item.text;
       const productPrice = item.price;
       const productOldPrice = item.priceOld;
-      const productShareUrl = item.shareUrl;
-      const productLikeUrl = item.likeUrl;
+      // const productShareUrl = item.shareUrl; (если необходимы, то вписать в json)
+      // const productLikeUrl = item.likeUrl;  (если необходимы, то вписать в json)
       const productLabels = item.labels;
 
       let productTemplateStart = `<article data-pid="${productId}" class="products__item item-product">`;
@@ -151,18 +151,18 @@ window.onload = function () {
       }
 
       let productTemplateImage = `
-        <a href="${productUrl}" class="item-product__image">
-         <img class="product__img" src="img/${productImage}" alt="${productTitle}">
-        </a>`;
+          <a href="${productUrl}" class="item-product__image">
+           <img class="product__img" src="img/${productImage}" alt="${productTitle}">
+          </a>`;
 
       let productTemplateBodyStart = `<div class="item-product__body">`;
       let productTemplateBodyEnd = `</div>`;
 
       let productTemplateContent = `
-        <div class="item-product__content">
-         <h3 class="item-product__title">${productTitle}</h3>
-         <div class="item-product__text">${productText}</div>
-        </div>`;
+          <div class="item-product__content">
+           <h3 class="item-product__title">${productTitle}</h3>
+           <div class="item-product__text">${productText}</div>
+          </div>`;
 
       let productTemplatePrices = "";
       let productTemplatePricesStart = `<div class="item-product__prices">`;
@@ -179,15 +179,16 @@ window.onload = function () {
       productTemplatePrices += productTemplatePricesEnd;
 
       let productTemplateActions = `
-        <div class="item-product__actions actions-product">
-         <div class="actions-product__body">
-          <a href="#" class="actions-product__button btn btn_white">Add to cart</a>
-          <a href="${productShareUrl}" class="actions-product__link">
-           <img class="action__img" src="img/share.svg" alt="share"/>Share</a>
-          <a href="${productLikeUrl}" class="actions-product__link"> <img class="action__img" src="img/like.svg" alt="like"/>Like</a>
-         </div>
-        </div>
-        `;
+          <div class="item-product__actions actions-product">
+           <div class="actions-product__body">
+            <a href="#" class="actions-product__button btn btn_white">Add to cart</a>
+           </div>
+          </div>
+          `;
+      //если необходимо будет добавить доп. функции (в  productTemplateActions)
+      //   <a href="${productShareUrl}" class="actions-product__link">
+      //   <img class="action__img" src="img/share.svg" alt="share"/>Share</a>
+      //  <a href="${productLikeUrl}" class="actions-product__link"> <img class="action__img" src="img/like.svg" alt="like"/>Like</a>
 
       let productTemplateBody = "";
       productTemplateBody += productTemplateBodyStart;
@@ -207,7 +208,7 @@ window.onload = function () {
     });
   }
 
-  //Ad to Cart
+  //Add to Cart
   function addToCart(productButton, productId) {
     if (!productButton.classList.contains("_hold")) {
       productButton.classList.add("_hold");
@@ -227,11 +228,11 @@ window.onload = function () {
 
       productImageFly.setAttribute("class", "_flyImage _ibg");
       productImageFly.style.cssText = `
-      left: ${productImageFlyLeft}px;
-      top: ${productImageFlyTop}px;
-      width: ${productImageFlyWidth}px;
-      height: ${productImageFlyHeight}px;
-      `;
+        left: ${productImageFlyLeft}px;
+        top: ${productImageFlyTop}px;
+        width: ${productImageFlyWidth}px;
+        height: ${productImageFlyHeight}px;
+        `;
 
       document.body.append(productImageFly);
 
@@ -241,12 +242,12 @@ window.onload = function () {
       const cartFlyTop = cart.getBoundingClientRect().top;
       //клону присваиваю уже новое значение (картинка будет лететь, уменьшаться и исчезать)
       productImageFly.style.cssText = `
-      left: ${cartFlyLeft}px;
-      top: ${cartFlyTop}px;
-      width: 0px;
-      height: 0px;
-      opacity:0;
-      `;
+        left: ${cartFlyLeft}px;
+        top: ${cartFlyTop}px;
+        width: 0px;
+        height: 0px;
+        opacity:0;
+        `;
 
       //выводить товар в корзине тогда, когда клон долетит до нее.
       productImageFly.addEventListener("transitionend", function () {
@@ -287,14 +288,19 @@ window.onload = function () {
         const cartProductTitle = product.querySelector(
           ".item-product__title"
         ).innerHTML;
+        const cartProductPrice = product.querySelector(
+          ".item-product__price"
+        ).innerHTML;
+
         const cartProductContent = `
-      <a href="" class="cart-list__image cart-ibg">${cartProductImage}</a>
-      <div class="cart-list__body>
-        <a href="" class="cart-list__title">${cartProductTitle}</a>
-        <div class="cart-list__quantity">Quantity: <span>1</span></div>
-        <a href="" class="cart-list__delete">Delete</a>
-      </div>
-        `;
+        <a href="" class="cart-list__image cart-ibg">${cartProductImage}</a>
+        <div class="cart-list__body>
+          <a href="" class="cart-list__title">${cartProductTitle}</a>
+          <div class="cart-list__quantity">Quantity: <span>1</span></div>
+          <div class="cart-list__price">${cartProductPrice} / 1 item</div>
+          <a href="" class="cart-list__delete">Delete</a>
+        </div>
+          `;
         cartList.insertAdjacentHTML(
           "beforeend",
           `<li data-cart-pid="${productId}" class="cart-list__item">${cartProductContent}</li>`
@@ -325,16 +331,16 @@ window.onload = function () {
         //если больше нуля, то изменяю кол-во в кружке над карзиной (в спан)
         cartQuantity.innerHTML = cartQuantityValue;
       } else {
-        cartQuantity.remove(); //если товар нет, удаляю спан оттуда
+        cartQuantity.remove(); //если товарa нет, удаляю спан оттуда
         cart.classList.remove("_active"); //и класс актив у списка (чтобы он закрылся)
       }
     }
   }
 };
 
+//бургер меню
 const menuBtn = document.querySelector(".icon-menu");
 const menu = document.querySelector(".menu__body");
-
 menuBtn.addEventListener("click", () => {
   menu.classList.toggle("_active");
 });
