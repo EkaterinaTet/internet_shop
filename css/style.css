@@ -1582,7 +1582,7 @@ body {
 }
 
 .banner__content {
-  background-image: url(/img/popup-bg.jpg);
+  background-image: url(../img/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
