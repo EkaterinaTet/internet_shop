@@ -1,36 +1,36 @@
 "use strict";
 
-const spollersArray = document.querySelectorAll("[data-spollers]"); //дана коллекция
-if (spollersArray.length > 0) {
+const spoilersArray = document.querySelectorAll("[data-spoilers]"); //дана коллекция
+if (spoilersArray.length > 0) {
   //получение обычных спойлеров
-  const spollersRegular = Array.from(spollersArray).filter(function (
+  const spoilersRegular = Array.from(spoilersArray).filter(function (
     // переводим сначала коллекцию в массив,а затем уже работаем с методом filter
     //filter сделает дубль в новую константу и вернет туда все
     item,
     index,
     self
   ) {
-    return !item.dataset.spollers.split(",")[0]; //обращаемся к элементу массива,заходим в его дата атрибут,обращаемся к конкретному дата атрибуту и разделяем содержимое, и запрашиваем сразу первый элемент.
+    return !item.dataset.spoilers.split(",")[0]; //обращаемся к элементу массива,заходим в его дата атрибут,обращаемся к конкретному дата атрибуту и разделяем содержимое, и запрашиваем сразу первый элемент.
   });
   //инициализация обычных спойлеров
-  if (spollersRegular.length > 0) {
-    initSpollers(spollersRegular); //отправляемся в ф-цию и передаем этот массив
+  if (spoilersRegular.length > 0) {
+    initSpoilers(spoilersRegular); //отправляемся в ф-цию и передаем этот массив
   }
   //получим объекты,которые имеют параметры и будут работать в зависимости от ширины
-  const spollersMedia = Array.from(spollersArray).filter(function (
+  const spoilersMedia = Array.from(spoilersArray).filter(function (
     item,
     index,
     self
   ) {
-    return item.dataset.spollers.split(",")[0];
+    return item.dataset.spoilers.split(",")[0];
   });
   //инициализируем спойлеры с медиа запросами
-  if (spollersMedia.length > 0) {
+  if (spoilersMedia.length > 0) {
     //проверка на существов. таких блоков
     const breakpointsArray = [];
-    spollersMedia.forEach((item) => {
+    spoilersMedia.forEach((item) => {
       //перебираем массив с медиа запросами
-      const params = item.dataset.spollers;
+      const params = item.dataset.spoilers;
       const breakpoint = {};
       const paramsArray = params.split(",");
       breakpoint.value = paramsArray[0];
@@ -61,77 +61,77 @@ if (spollersArray.length > 0) {
       const mediaType = paramsArray[2]; //тип (мин или макс)
       const matchMedia = window.matchMedia(paramsArray[0]); //слушает ширину экрана
       //объекты с нужным условием
-      const spollersArray = breakpointsArray.filter(function (item) {
+      const spoilersArray = breakpointsArray.filter(function (item) {
         if (item.value === mediaBreakpoint && item.type === mediaType) {
           return true;
         }
       });
       //Событие
       matchMedia.addListener(function () {
-        initSpollers(spollersArray, matchMedia); //слушаем событие
+        initSpoilers(spoilersArray, matchMedia); //слушаем событие
       });
-      initSpollers(spollersArray, matchMedia); //и еще запускаем ф-цию, чтобы она отработла сразу при загрузке стр
+      initSpoilers(spoilersArray, matchMedia); //и еще запускаем ф-цию, чтобы она отработла сразу при загрузке стр
     });
   }
   //инициализация
-  function initSpollers(spollersArray, matchMedia = false) {
-    spollersArray.forEach((spollersBlock) => {
-      spollersBlock = matchMedia ? spollersBlock.item : spollersBlock;
+  function initSpoilers(spoilersArray, matchMedia = false) {
+    spoilersArray.forEach((spoilersBlock) => {
+      spoilersBlock = matchMedia ? spoilersBlock.item : spoilersBlock;
       if (matchMedia.matches || !matchMedia) {
-        spollersBlock.classList.add("_init");
-        initSpollerBody(spollersBlock);
-        spollersBlock.addEventListener("click", setSpollerAction);
+        spoilersBlock.classList.add("_init");
+        initSpoilerBody(spoilersBlock);
+        spoilersBlock.addEventListener("click", setSpoilerAction);
       } else {
-        spollersBlock.classList.remove("_init");
-        initSpollerBody(spollersBlock, false);
-        spollersBlock.removeEventListener("click", setSpollerAction);
+        spoilersBlock.classList.remove("_init");
+        initSpoilerBody(spoilersBlock, false);
+        spoilersBlock.removeEventListener("click", setSpoilerAction);
       }
     });
   }
   //работа с контентом
-  function initSpollerBody(spollersBlock, hideSpollerBody = true) {
-    const spollerTitles = spollersBlock.querySelectorAll("[data-spoller]");
-    if (spollerTitles.length > 0) {
-      spollerTitles.forEach((spollerTitle) => {
-        if (hideSpollerBody) {
-          spollerTitle.removeAttribute("tabindex");
-          if (!spollerTitle.classList.contains("_active")) {
-            spollerTitle.nextElementSibling.hidden = true;
+  function initSpoilerBody(spoilersBlock, hideSpoilerBody = true) {
+    const spoilerTitles = spoilersBlock.querySelectorAll("[data-spoiler]");
+    if (spoilerTitles.length > 0) {
+      spoilerTitles.forEach((spoilerTitle) => {
+        if (hideSpoilerBody) {
+          spoilerTitle.removeAttribute("tabindex");
+          if (!spoilerTitle.classList.contains("_active")) {
+            spoilerTitle.nextElementSibling.hidden = true;
           }
         } else {
-          spollerTitle.setAttribute("tabindex", "-1");
-          spollerTitle.nextElementSibling.hidden = false;
+          spoilerTitle.setAttribute("tabindex", "-1");
+          spoilerTitle.nextElementSibling.hidden = false;
         }
       });
     }
   }
-  function setSpollerAction(e) {
+  function setSpoilerAction(e) {
     const el = e.target;
-    if (el.hasAttribute("data-spoller") || el.closest("[data-spoller]")) {
-      const spollerTitle = el.hasAttribute("data-spoller")
+    if (el.hasAttribute("data-spoiler") || el.closest("[data-spoiler]")) {
+      const spoilerTitle = el.hasAttribute("data-spoiler")
         ? el
-        : el.closest("[data-spoller]");
-      const spollersBlock = spollerTitle.closest("[data-spollers]");
-      const oneSpoller = spollersBlock.hasAttribute("data-one-spoller")
+        : el.closest("[data-spoiler]");
+      const spoilersBlock = spoilerTitle.closest("[data-spoilers]");
+      const oneSpoiler = spoilersBlock.hasAttribute("data-one-spoiler")
         ? true
         : false;
-      if (!spollersBlock.querySelectorAll("._slide").length) {
-        if (oneSpoller && !spollerTitle.classList.contains("_active")) {
-          hideSpollersBody(spollersBlock);
+      if (!spoilersBlock.querySelectorAll("._slide").length) {
+        if (oneSpoiler && !spoilerTitle.classList.contains("_active")) {
+          hideSpoilersBody(spoilersBlock);
         }
-        spollerTitle.classList.toggle("_active");
-        _slideToggle(spollerTitle.nextElementSibling, 500);
+        spoilerTitle.classList.toggle("_active");
+        _slideToggle(spoilerTitle.nextElementSibling, 500);
       }
       e.preventDefault();
     }
   }
-  function hideSpollersBody(spollersBlock) {
-    const spollerActiveTitle = spollersBlock.querySelector(
-      "[data-spoller]._active"
+  function hideSpoilersBody(spoilersBlock) {
+    const spoilerActiveTitle = spoilersBlock.querySelector(
+      "[data-spoiler]._active"
     );
-    if (spollerActiveTitle) {
-      spollerActiveTitle.classList.remove("_active");
-      _slideUp(spollerActiveTitle.nextElementSibling, 500);
+    if (spoilerActiveTitle) {
+      spoilerActiveTitle.classList.remove("_active");
+      _slideUp(spoilerActiveTitle.nextElementSibling, 500);
     }
   }
 }
