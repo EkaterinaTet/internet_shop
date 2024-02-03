@@ -1,6 +1,6 @@
-# Интернет магазин мебели
+# Online furniture store
 
-## Технологии
+## Tech stack:
 HTML5
 CSS3
 JavaScript
@@ -8,14 +8,14 @@ BEM
 CDN
 SCSS
 
-## Описание
+## Description
 
-1. В работе применены инструменты адаптивной и "резиновой" верстки: использованы flex и grid, медиа запросы. 
-2. Воспроизведена строка поиска, корзина, выпадающее меню при наведении (при использовании устройств с мышью).
-3. Присутствует несколько слайдеров (со стрелками, точками и перетягиванием изображений) / спойлеры(в меню).
-4. На странице присутствуют товары, которые можно добавлять в корзину, из корзины товары можно удалять.
-5. Получение доп. товаров реализовано с помощью json-файла.
-6. Реализован блок с таймером обратного отсчёта.
+1. Adaptive and fluid layout tools were used in the work: used flex and grid, media queries. 
+2. Implemented a search bar, a shopping cart, and a drop-down menu on hover (when using devices with a mouse).
+3. There are several sliders (with arrows, dots and dragging images) / spoilers (in the menu).
+4. Items can be added to the cart and removed from the cart.
+5. Receiving additional products is implemented using a json file.
+6. Implemented a block with a countdown timer.
 
 
-## [Страница проекта на GitHubPages](https://ekaterinatet.github.io/internet_shop/)
+## [Project page on GitHubPages](https://ekaterinatet.github.io/internet_shop/)
