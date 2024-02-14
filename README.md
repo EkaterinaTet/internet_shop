@@ -19,3 +19,8 @@ SCSS
 
 
 ## [Project page on GitHubPages](https://ekaterinatet.github.io/internet_shop/)
+
+<p align="left">
+  <img width="200" height="700" src="https://github.com/EkaterinaTet/internet_shop/blob/main/internet-shop.png">
+  <img width="400" height="250" src="https://github.com/EkaterinaTet/internet_shop/blob/main/cart-shop.png">
+</p>
